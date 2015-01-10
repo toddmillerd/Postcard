@@ -22,6 +22,7 @@ class ViewController: UIViewController {
 	}
 	
 	@IBAction func sendMailButton(sender: AnyObject) {
+		// Adding comment to test commits
 		messageLabel.textColor = UIColor.redColor()
 		messageLabel.text = "Hello \(enterMessageTextField.text)"
 		enterMessageTextField.text = ""
