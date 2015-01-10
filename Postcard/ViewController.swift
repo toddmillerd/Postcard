@@ -11,8 +11,11 @@ import UIKit
 class ViewController: UIViewController {
 
 	@IBOutlet weak var messageLabel: UILabel!
+	@IBOutlet weak var nameLabel: UILabel!
+	
 	@IBOutlet weak var enterNameTextField: UITextField!
 	@IBOutlet weak var enterMessageTextField: UITextField!
+	
 	@IBOutlet weak var sentMailButton: UIButton!
 	
 	
@@ -22,15 +25,27 @@ class ViewController: UIViewController {
 	}
 	
 	@IBAction func sendMailButton(sender: AnyObject) {
-		// Adding comment to test commits
+		
+		// Set the colour of the text in the message and name labels
+		nameLabel.textColor = UIColor.blueColor()
 		messageLabel.textColor = UIColor.redColor()
-		messageLabel.text = "Hello \(enterMessageTextField.text)"
+		
+		// Populate the name and message labels
+		nameLabel.text = enterNameTextField.text
+		messageLabel.text = "Hello, \(enterMessageTextField.text)"
+
+		// Clear the contents of the text fields
+		enterNameTextField.text = ""
 		enterMessageTextField.text = ""
+		
+		// Show the labels when they are ready to be shown
+		nameLabel.hidden = false
 		messageLabel.hidden = false
 		
+		// Change the title of the button when it is pressed
 		sentMailButton.setTitle("Mail Sent", forState: UIControlState.Normal)
 		
-		
+		// Make the keyboard disappear regardless which text field they edited last
 		enterNameTextField.resignFirstResponder()
 		enterMessageTextField.resignFirstResponder()
 	}
